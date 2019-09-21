@@ -1,0 +1,11 @@
+package de.jonas.benogglserver.commons;
+
+public enum Comboname {
+    BINOKEL, DOPPELTER_BINOKEL,
+    RUNDGANG,
+    VIER_ASS, VIER_KÖNIGE, VIER_OBER, VIER_UNTER,
+    ACHT_ASS, ACHT_KÖNIGE, ACHT_OBER, ACHT_UNTER,
+
+    FAMILIE, DOPPELTE_FAMILIE,
+    PAAR, DOPPELTES_PAAR,
+}
