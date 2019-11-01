@@ -1,6 +1,5 @@
 package de.jonas.benogglserver.gameengine.model;
 
-import db.HSQLDatabase;
 import de.jonas.benogglserver.commons.Cardname;
 import de.jonas.benogglserver.commons.Cardtype;
 import de.jonas.benogglserver.gameengine.lobby.User;
@@ -28,7 +27,7 @@ public class Game {
         reizenStartScore = 140;
         this.size = size;
         users = new ArrayList<>();
-        deck = loadDeckFromDB(size);
+        deck = initDeck();
         turnIndex = 0;
         running = false;
     }
@@ -77,7 +76,36 @@ public class Game {
         return null;
     }
 
-    private ArrayList<Card> loadDeckFromDB(int playerCount) {
+    private ArrayList<Card> initDeck() {
+        ArrayList<Card> mDeck = new ArrayList<>();
+
+        Cardtype[] types = {Cardtype.BLATT, Cardtype.EICHEL, Cardtype.HERZ, Cardtype.SHELL};
+
+        if(size == 2 | size == 3) {
+            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER,Cardname.UNTER};
+            for(Cardtype mType : types) {
+                for (int i = 0; i < 2; i++) {
+                    for(Cardname mName : names) {
+                        mDeck.add(new Card(mType, mName));
+                    }
+                }
+            }
+        } else if(size == 4) {
+            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER,Cardname.UNTER, Cardname.SIEBEN};
+            for(Cardtype mType : types) {
+                for (int i = 0; i < 2; i++) {
+                    for(Cardname mName : names) {
+                        mDeck.add(new Card(mType, mName));
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+   /* private ArrayList<Card> loadDeckFromDB(int playerCount) {
         HSQLDatabase db = new HSQLDatabase("database/cards");
         if (playerCount == 2 || playerCount == 3) {
             try {
@@ -116,7 +144,7 @@ public class Game {
             }
         }
         return null;
-    }
+    }*/
 
     public void reset() {
         running = false;
