@@ -69,8 +69,8 @@ public class Game {
         return rDeck;
     }
 
-    public User getTurn(){
-        if(running){
+    public User getTurn() {
+        if (running) {
             return users.get(round.getTurnIndex());
         }
         return null;
@@ -81,20 +81,20 @@ public class Game {
 
         Cardtype[] types = {Cardtype.BLATT, Cardtype.EICHEL, Cardtype.HERZ, Cardtype.SHELL};
 
-        if(size == 2 | size == 3) {
-            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER,Cardname.UNTER};
-            for(Cardtype mType : types) {
+        if (size == 2 | size == 3) {
+            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER, Cardname.UNTER};
+            for (Cardtype mType : types) {
                 for (int i = 0; i < 2; i++) {
-                    for(Cardname mName : names) {
+                    for (Cardname mName : names) {
                         mDeck.add(new Card(mType, mName));
                     }
                 }
             }
-        } else if(size == 4) {
-            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER,Cardname.UNTER, Cardname.SIEBEN};
-            for(Cardtype mType : types) {
+        } else if (size == 4) {
+            Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER, Cardname.UNTER, Cardname.SIEBEN};
+            for (Cardtype mType : types) {
                 for (int i = 0; i < 2; i++) {
-                    for(Cardname mName : names) {
+                    for (Cardname mName : names) {
                         mDeck.add(new Card(mType, mName));
                     }
                 }
