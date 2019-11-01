@@ -90,6 +90,7 @@ public class Game {
                     }
                 }
             }
+            return mDeck;
         } else if (size == 4) {
             Cardname[] names = {Cardname.ASS, Cardname.ZEHN, Cardname.KÖNIG, Cardname.OBER, Cardname.UNTER, Cardname.SIEBEN};
             for (Cardtype mType : types) {
@@ -99,6 +100,7 @@ public class Game {
                     }
                 }
             }
+            return mDeck;
         }
 
         return null;
